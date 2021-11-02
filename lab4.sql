@@ -8,7 +8,9 @@ returns                  char(18) AS $$DECLARE return_statement CHAR(18); -- п�
   date2 = date1;
 ENDIF;IF(Age(date2, date1) <= interval '18 years 0 months 0 day') THEN
 return_statement = 'несовершеннолетний';
-else return_statement = to_char(date(date1 + interval '18 years 0 months 1 day'),'DD/MM/YYYY' );ENDIF;RETURN return_statement;END;$$ language plpgsql;CREATE
+else return_statement = to_char(date(date1 + interval '18 years 0 months 1 day'),'DD/MM/YYYY' );ENDIF;RETURN return_statement;END;$$ language plpgsql;
+
+CREATE
 OR
 replace FUNCTION owners_by_func(n_numbuilding numeric(8), regiment numeric(1))
 returns void AS $$DECLARE row RECORD;flag boolean = false;BEGIN
